@@ -35,6 +35,11 @@ func air_movement():
 	if abs(velocity.y) > maxYVelocity:
 		velocity.y = maxYVelocity * sign(velocity.y)
 	
+	var horizontalCollisions = CollisionsHorizontal()
+	if horizontalCollisions != null:
+		var boundsOffset = 0.5
+		velocity.x = (horizontalCollisions.get("distance") - boundsOffset) * sign(velocity.x)
+	
 	if velocity.y <= 0:
 		var belowCollisions = _collision_below()
 		if belowCollisions != null:
@@ -45,11 +50,6 @@ func air_movement():
 			var normal = belowCollisions.get("normal")
 			relativeAngle = set_angle(Vector2(normal.x, normal.y))
 			velocity.y = (belowCollisions.get("distance") - size + minDistance) * groundDirection
-			
-	var horizontalCollisions = CollisionsHorizontal()
-	if horizontalCollisions != null:
-		var boundsOffset = 0.5
-		velocity.x = (horizontalCollisions.get("distance") - boundsOffset) * sign(velocity.x)
 	
 	player.position += velocity
 	
