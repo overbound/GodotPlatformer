@@ -5,7 +5,7 @@ var velocity:Vector3
 var groundSpeed:float
 var maxGroundSpeed:float = 0.06
 var gravity:float = 0.021875
-var maxYVelocity:float = 0.65
+var maxYVelocity:float = 0.5
 var acceleration:float = 0.0046875
 var relativeAngle:float
 var slopeFactor:float
@@ -127,7 +127,7 @@ func _collision_below():
 
 func CollisionsHorizontal():
 	var space_state = player.get_world_3d().direct_space_state
-	var origin = player.position + Vector3(0, 1, 0)
+	var origin = player.position + Vector3(0, 0.5, 0)
 	var boundsOffset = 0.5
 	
 	var endA = origin + Vector3((velocity.x) + (boundsOffset * sign(velocity.x)), 0, 0)

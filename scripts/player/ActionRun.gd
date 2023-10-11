@@ -22,7 +22,7 @@ func handle_ground_movement():
 	
 	player.physics.groundSpeed = min(abs(player.physics.groundSpeed) + player.physics.acceleration, player.physics.maxGroundSpeed)  * input_dir.x
 	print(player.physics.groundSpeed)
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		player.bufferedAction = player.actionJump
 		player.physics.landed = false
 

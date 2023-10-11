@@ -24,17 +24,14 @@ func begin_fall():
 func action():
 	var minJump = 0.3125
 	
-	if Input.is_action_pressed('ui_accept') && isJumping:
+	if !Input.is_action_pressed('ui_accept') && isJumping:
 		if player.physics.velocity.y > minJump:
 			player.physics.velocity.y = minJump
 			isJumping = false
-	
-	if player.physics.velocity.y < 0:
-		isJumping = false
 		
 	var inputDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	player.physics.direction =  inputDir.x
-	player.physics.velocity.x = min(abs(player.physics.velocity.x) + player.physics.acceleration, player.physics.maxGroundSpeed)  * inputDir.x
+	player.physics.velocity.x = min(abs(player.physics.velocity.x) + player.physics.acceleration, player.physics.maxGroundSpeed) * inputDir.x
 
 	player.physics.update_movement()
 	

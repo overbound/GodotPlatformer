@@ -52,7 +52,7 @@ shape = SubResource("ConvexPolygonShape3D_wflnu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.195, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.58933e-08, 0, -1.58933e-08, 1, 0, -1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 1.58933e-08, 0, -1.58933e-08, 1, 0, -1, 8.36131)
 
 [node name="Sprite3D" type="Sprite3D" parent="Player"]
 texture = ExtResource("2_7t3xd")
